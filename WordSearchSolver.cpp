@@ -51,29 +51,21 @@ int main(int argc, char* argv[]) {
     cin >> y;
     
 	// Matrix 1 contains the inputted letters
-	vector< vector<char> > matrix;
-	matrix.resize(x);
+	char matrix[x][y];
 	for (int i = 0; i < x; i++) {
-		matrix[i].resize(y);
-
-		// Inserts the letters into the row
 		for (int j = 0; j < y; j++) {
-            cin >> matrix[i][j];
-        }
+			cin >> matrix[i][j];
+		}
 	}
 	
 	// Matrix 2 acts as a switch for when the word is found in matrix
-	vector< vector<bool> > matrix2;
-	matrix2.resize(x);
+	bool matrix2[x][y];
 	for (int i = 0; i < x; i++) {
-		matrix2[i].resize(y);
-
-		// The default value is "false" for all cells
 		for (int j = 0; j < y; j++) {
 			matrix2[i][j] = false;
 		}
 	}
-	
+
 	// Search for the words in the matrix
 	for (int word = 1; word < argc; word++) {
 		int argvLength = strlen(argv[word]);
